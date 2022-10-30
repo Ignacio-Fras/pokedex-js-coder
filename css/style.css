@@ -34,6 +34,13 @@ main{
     display: flex;
     flex-direction: row;
 }
+#formulario{
+    background-color: rgb(203, 236, 149);
+    padding: 1rem;
+    margin-top: 20px;
+    width: 225px;
+    justify-content: center;
+}
 #btn{
     background-color: rgb(203, 236, 149);
     padding: 1rem;

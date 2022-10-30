@@ -1,22 +1,49 @@
-// Se saluda al usuario
- const btn = document.querySelector("#btn").addEventListener("click", () =>{
-     Swal.fire('Bienvenido')
-     })
+// Formulario para que se reconozca al usuario
+const button = document.getElementById('#formulario')
+
+formulario.addEventListener("click", async () =>{
+    const { value: nombreApellido } = await Swal.fire({
+        title: 'Ingrese su nombre y apellido',
+        input: 'text',
+        inputLabel: 'Ej : Maximiliano rodriguez',
+        inputPlaceholder: 'Ingrese su nombre',
+        inputAttributes: {
+          maxlength: 100,
+          autocapitalize: 'off',
+          autocorrect: 'off'
+        }
+      })
+    const { value: email } = await Swal.fire({
+        title: 'Ingrese su Mail',
+        input: 'email',
+        inputLabel: 'Ej : Ricardolopez@gmail.com',
+        inputPlaceholder: 'Enter your email address'
+      })
+      
+      const { value: password } = await Swal.fire({
+        title: 'Ingrese su contraseña',
+        input: 'password',
+        inputLabel: 'Password',
+        inputPlaceholder: 'Ingrese su contraseña',
+        inputAttributes: {
+          maxlength: 10,
+          autocapitalize: 'off',
+          autocorrect: 'off'
+        }
+      })
+      
+      if (nombreApellido) {
+        const datosEnLocal = JSON.parse(localStorage.getItem("datosUsuario"))
+        datosEnLocal.nombre = nombreApellido
+        localStorage.setItem("datosUsuario", JSON.stringify(datosEnLocal))
+
+        Swal.fire(`Bienvenido ${nombreApellido} a la pagina oficial pokedex`)
+  }
+} )
+
 
 // // Se aplica una alerta en el caso que el usuario refresque la pagina, por si quiere guardar o no su progreso
-//  Swal.fire({
-//      title: 'Do you want to save the changes?',
-//      showDenyButton: true,
-//      showCancelButton: true,
-//      confirmButtonText: 'Save',
-//      denyButtonText: `Don't save`,
-//    }).then((result) => {
-//      if (result.isConfirmed) {
-//        Swal.fire('Saved!', '', 'success')
-//      } else if (result.isDenied) {
-//        Swal.fire('Changes are not saved', '', 'info')
-//      }
-//    })
+
 
 // Se utiliza DOM para el estilo de la pokedex
 const pokemonCard = document.querySelector('[data-poke-card]');
@@ -116,7 +143,3 @@ const renderNotFound = () => {
 
 // Se establece un localStorage para que el usuario vea el ultimo pokemon que busco antes de cerrar el navegador
 
-
-// Se aplica una libreria para que se llene un formulario y tener datos del usuario
-
-// Se crea un evento para que se salude al usuario una vez que lleno el formulario del inicio de la pagina mediante libreria
