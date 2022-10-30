@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+form {
+    width: 700px;
+    text-align: center;
+    padding: 1rem;
+    margin: 1px auto;
+}
+header{
+    background-image: linear-gradient(to left, rgb(211, 142, 142), rgb(76, 76, 245));
+    padding: 1rem;
+    text-align: center;
+
+}
+.titulo{
+    background-color: rgb(233, 163, 163);
+    display: inline-block;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+.texto{
+    background-color: rgb(178, 231, 117);
+    padding: 1rem;
+    margin: 1rem;
+}
+main{
+    background-color: rgb(236, 181, 174);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+}
+#btn{
+    background-color: rgb(203, 236, 149);
+    padding: 1rem;
+    margin-top: 20px;
+    width: 225px;
+    justify-content: center;
+}
+footer{
+    background-image: linear-gradient(to left, rgb(211, 142, 142), rgb(76, 76, 245));
+    padding: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+footer h3{
+    background-color: rgb(233, 163, 163);
+    display: inline;
+    padding: 1rem;
+    margin: 1rem;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: wheat;
+}
+
+.poke-card {
+    position: relative;
+    height: fit-content;
+    font-family: 'Roboto Mono', monospace;
+    max-width: 700px;
+    border-radius: 4px;
+    color: rgb(14, 14, 15);
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: rgb(240, 208, 208);
+    border: 2px solid black;
+}
+.busqueda{
+    background-color: rgb(190, 130, 130);
+    display: flex;
+    padding: 1rem;
+    margin-bottom: 2rem ;
+}
+.poke-card::before {
+    content: '';
+    background: radial-gradient(rgb(126, 10, 10) 33%, transparent 33%);
+    background-size: 3px 3px;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+}
+
+.img-container {
+    position: relative;
+    width: 200px;
+    margin: 10px auto;
+}
+
+.estadoPokemon div {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 11px;
+    font-size: 18px;
+    background-color: rgba(111, 135, 241, 0.418);
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.tiposPokemon div {
+    background-color: rgb(185, 169, 169);
+    padding: 21px;
+    margin: 23px;
+    border-radius: 23px;
+    border: 3px solid black;
+    font-size: 20px;
+}
+.tituloPokemon{
+    background-color: rgb(200, 148, 241);
+    font-size: 50px;
+}
+.poke-img {
+    width: 430px;
+    border-radius: 10px;
+    align-items: center;
+    margin-left : -7rem;
+}
+.nombrePokemon{
+    background-color: rgb(61, 46, 46);
+    padding: 1rem;
+    margin: 1rem;
+}

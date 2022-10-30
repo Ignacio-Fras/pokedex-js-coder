@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Pokedex</title>
+</head>
+<body>
+    <header>
+        <div class=titulo>
+        <h1>POKEDEX!</h1>
+        <h2>Bienvenido a la pagina oficial de pokemon!</h2>
+        </div>
+    </header>
+    <main>
+        <!-- <div class="formulario">
+            <form action="">
+                <h2>Ingrese su nombre</h2>
+                <input type="text">
+                <h2>Ingrese su apellido</h2>
+                <input type="text">
+                <h2>Ingrese su edad</h2>
+                <input type="text">
+                <button id="btn">Ingresar</button>
+            </form>
+        </div> -->
+    <div class="busqueda">
+    <form action="" onsubmit="searchPokemon(event)">
+        <h2 class="texto">Ingrese el nombre del Pokemon</h2>
+        <input type="text" name="pokemon" autocomplete="off" placeholder="Nombre de Pokemon">
+    </form>
+    </div>
+    <div>
+    <div data-poke-card class="poke-card">
+        <div data-poke-name class="tituloPokemon">Pokedex</div>
+        <div data-poke-img-container class="img-container">
+            <img data-poke-img class="poke-img" src ="images/pokedex2.png"/>
+        </div>
+        <div data-poke-id></div>
+        <div data-poke-types class="tiposPokemon"></div>
+        <div data-poke-stats class="estadoPokemon"></div>
+    </div>
+    </div>
+    <footer>
+        <h3>Creado por Ignacio Frascone</h3>
+    </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js"></script>
+</body>
+</html>
