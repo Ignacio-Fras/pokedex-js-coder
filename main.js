@@ -37,8 +37,16 @@ formulario.addEventListener("click", async () =>{
         const arrUsuarios = JSON.parse(localStorage.getItem('usuarios', nombreApellido)) || [];
         arrUsuarios.push(nombreApellido)
         localStorage.setItem("usuarios", JSON.stringify(arrUsuarios));
-        Swal.fire(`Bienvenido ${nombreApellido} a la pagina oficial pokedex`)
-    }});
+
+        Swal.fire({
+            title: '¡UN USUARIO SALVAJE APARECE!',
+            text: `¡Bienvenido ${nombreApellido} a la pokedex oficial!.`,
+            imageUrl: 'images/turma-pokemon-png.png',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })    
+        }});
 
 // Se utiliza DOM para el estilo de la pokedex
 const pokemonCard = document.querySelector('[data-poke-card]');
