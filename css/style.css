@@ -60,7 +60,7 @@ footer h3{
     padding: 1rem;
     margin: 1rem;
 }
-input {
+.pokemon {
     width: 100%;
     padding: 10px;
     text-align: center;

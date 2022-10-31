@@ -31,19 +31,14 @@ formulario.addEventListener("click", async () =>{
           autocorrect: 'off'
         }
       })
-      
-      if (nombreApellido) {
-        const datosEnLocal = JSON.parse(localStorage.getItem("datosUsuario"))
-        datosEnLocal.nombre = nombreApellido
-        localStorage.setItem("datosUsuario", JSON.stringify(datosEnLocal))
 
+    //   Se utiliza localStorage para mantener un registro de las personas que utilizaron la pokedex sin almacenar informacion sensible o perjudicial
+    if (nombreApellido) {
+        const arrUsuarios = JSON.parse(localStorage.getItem('usuarios', nombreApellido)) || [];
+        arrUsuarios.push(nombreApellido)
+        localStorage.setItem("usuarios", JSON.stringify(arrUsuarios));
         Swal.fire(`Bienvenido ${nombreApellido} a la pagina oficial pokedex`)
-  }
-} )
-
-
-// // Se aplica una alerta en el caso que el usuario refresque la pagina, por si quiere guardar o no su progreso
-
+    }});
 
 // Se utiliza DOM para el estilo de la pokedex
 const pokemonCard = document.querySelector('[data-poke-card]');
@@ -142,4 +137,3 @@ const renderNotFound = () => {
 }
 
 // Se establece un localStorage para que el usuario vea el ultimo pokemon que busco antes de cerrar el navegador
-
