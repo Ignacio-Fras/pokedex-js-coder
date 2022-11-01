@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Rubik', sans-serif;
 }
 form {
     width: 700px;
@@ -28,30 +29,25 @@ header{
 }
 main{
     background-color: rgb(236, 181, 174);
+    padding: 2rem;
 }
 
-.formulario{
-    display: flex;
-    flex-direction: row;
-}
 #formulario{
     background-color: rgb(203, 236, 149);
+    border-radius: 10px;
     padding: 1rem;
     margin-top: 20px;
     width: 225px;
     justify-content: center;
 }
-#btn{
-    background-color: rgb(203, 236, 149);
-    padding: 1rem;
-    margin-top: 20px;
-    width: 225px;
-    justify-content: center;
+#formulario:hover{
+    background-color: rgb(89, 240, 157);
 }
+
 footer{
     background-image: linear-gradient(to left, rgb(211, 142, 142), rgb(76, 76, 245));
-    padding: 2rem;
-    margin-top: 1rem;
+    padding: 3rem;
+    margin-top: 0rem;
     text-align: center;
 }
 footer h3{
@@ -67,7 +63,19 @@ footer h3{
     border-radius: 15px;
     background-color: wheat;
 }
-
+.pokemon:hover{
+    background-color: rgb(250, 224, 224);
+}
+.btn{
+    background-color: rgb(203, 236, 149);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    width: 18rem;
+}
+.btn:hover{
+    background-color: rgb(89, 240, 157);
+}
 .poke-card {
     position: relative;
     height: fit-content;
@@ -102,7 +110,7 @@ footer h3{
 
 .img-container {
     position: relative;
-    width: 200px;
+    width: 280px;
     margin: 10px auto;
 }
 
@@ -130,10 +138,13 @@ footer h3{
     font-size: 50px;
 }
 .poke-img {
-    width: 430px;
+    width: 260px;
     border-radius: 10px;
     align-items: center;
-    margin-left : -7rem;
+    margin-left : 1rem;
+}
+.poke-id{
+    background-color: gray;
 }
 .nombrePokemon{
     background-color: rgb(61, 46, 46);

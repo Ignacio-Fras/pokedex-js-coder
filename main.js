@@ -1,7 +1,7 @@
 // Formulario para que se reconozca al usuario
-const button = document.getElementById('#formulario')
+const button = document.getElementById('formulario')
 
-formulario.addEventListener("click", async () =>{
+button.addEventListener("click", async () =>{
     const { value: nombreApellido } = await Swal.fire({
         title: 'Ingrese su nombre y apellido',
         input: 'text',
@@ -32,21 +32,27 @@ formulario.addEventListener("click", async () =>{
         }
       })
 
-    //   Se utiliza localStorage para mantener un registro de las personas que utilizaron la pokedex sin almacenar informacion sensible o perjudicial
+    //  Se utiliza localStorage para mantener un registro de las personas que utilizaron la pokedex sin almacenar informacion sensible o perjudicial
     if (nombreApellido) {
         const arrUsuarios = JSON.parse(localStorage.getItem('usuarios', nombreApellido)) || [];
         arrUsuarios.push(nombreApellido)
         localStorage.setItem("usuarios", JSON.stringify(arrUsuarios));
 
         Swal.fire({
-            title: '¡UN USUARIO SALVAJE APARECE!',
-            text: `¡Bienvenido ${nombreApellido} a la pokedex oficial!.`,
+            title: '¡ UN USUARIO SALVAJE APARECE !',
+            text: `¡ Bienvenido ${nombreApellido} a la pokedex oficial !.`,
             imageUrl: 'images/turma-pokemon-png.png',
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
           })    
-        }});
+        }else{
+          Swal.fire({
+            icon: 'warning',
+            title: 'Cuidado!',
+            text: 'No completaste con datos validos.',
+          })
+        }})
 
 // Se utiliza DOM para el estilo de la pokedex
 const pokemonCard = document.querySelector('[data-poke-card]');
@@ -82,6 +88,14 @@ const typeColors = {
 const searchPokemon = event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
+    if(!value.trim()){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Cuidado!',
+        text: 'No vas a encontrar pokemon si dejas el espacio vacio!',})
+      return
+    }
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
         .then(data => data.json())
         .then(response => renderDatosPokemon(response))
@@ -93,7 +107,7 @@ const renderDatosPokemon = data => {
     const { stats, types } = data;
 
     pokemonNombre.textContent = data.name;
-    pokemonImg.setAttribute('src', sprite);
+    pokemonImg.setAttribute('src', sprite)
     pokemonId.textContent = `Nº ${data.id}`;
     setColorCarta(types);
     renderTipoPokemon(types);
@@ -105,8 +119,8 @@ const renderDatosPokemon = data => {
 const setColorCarta = types => {
     const colorUno = typeColors[types[0].type.name];
     const colorDos = types[1] ? typeColors[types[1].type.name] : typeColors.default;
-    pokemonImg.style.background =  `radial-gradient(${colorDos} 33%, ${colorUno} 43%)`;
-    pokemonImg.style.backgroundSize = ' 10px 10px';
+    pokeImgContainer.style.background =  `radial-gradient(${colorDos} 33%, ${colorUno} 43%)`;
+    pokeImgContainer.style.backgroundSize = ' 10px 10px';
 }
 
 // Se obtiene en pantalla el tipo y las estadisticas de cada pokemon
@@ -138,10 +152,9 @@ const renderPokemonEstados = stats => {
 const renderNotFound = () => {
     pokemonNombre.textContent = 'No encontrado';
     pokemonImg.setAttribute('src','./images/Pokedex.png');
-    pokemonImg.style.background =  '#fff';
+    pokeImgContainer.style.background = '';
     pokemonTipos.innerHTML = '';
     pokemonEstado.innerHTML = '';
     pokemonId.textContent = '';
 }
 
-// Se establece un localStorage para que el usuario vea el ultimo pokemon que busco antes de cerrar el navegador
