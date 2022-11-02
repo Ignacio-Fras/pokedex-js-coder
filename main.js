@@ -1,4 +1,4 @@
-// Formulario para que se reconozca al usuario
+// Formulario para que ingrese el usuario
 const button = document.getElementById('formulario')
 
 button.addEventListener("click", async () =>{
@@ -46,14 +46,14 @@ button.addEventListener("click", async () =>{
             imageHeight: 200,
             imageAlt: 'Custom image',
           })    
-        }else{
+        }
+        else{
           Swal.fire({
-            icon: 'warning',
+            icon: 'error',
             title: 'Cuidado!',
-            text: 'No completaste con datos validos.',
+            text: 'Los datos no pudieron procesarse.',
           })
         }})
-
 // Se utiliza DOM para el estilo de la pokedex
 const pokemonCard = document.querySelector('[data-poke-card]');
 const pokemonNombre = document.querySelector('[data-poke-name]');
@@ -90,9 +90,9 @@ const searchPokemon = event => {
     const { value } = event.target.pokemon;
     if(!value.trim()){
       Swal.fire({
-        icon: 'warning',
+        icon: 'question',
         title: 'Cuidado!',
-        text: 'No vas a encontrar pokemon si dejas el espacio vacio!',})
+        text: '¡ No vas a encontrar pokemon si dejas el espacio vacio!',})
       return
     }
 
@@ -124,6 +124,7 @@ const setColorCarta = types => {
 }
 
 // Se obtiene en pantalla el tipo y las estadisticas de cada pokemon
+
 const renderTipoPokemon = types => {
     pokemonTipos.innerHTML = '';
     types.forEach(type => {
